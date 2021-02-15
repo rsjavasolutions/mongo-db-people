@@ -1,5 +1,6 @@
 package com.rsjava.crudmongoDB.person;
 
+import com.rsjava.crudmongoDB.aop.EmailSender;
 import com.rsjava.crudmongoDB.person.request.PersonRequest;
 import com.rsjava.crudmongoDB.person.response.PersonResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ public class PersonController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
+    @EmailSender
     public Set<PersonResponse> getAllPeople() {
         return personService.getAllPeople();
     }
